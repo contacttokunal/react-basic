@@ -1,6 +1,12 @@
+import { MouseEvent } from "react";
+
 function ListGroup() {
-  let items = ["New York", "San Fransisco", "Tokyo", "London"];
-  items = [];
+  const items = ["New York", "San Fransisco", "Tokyo", "London"];
+
+  //Evnet Hanler
+  const handleClick = (event: MouseEvent) => {
+    console.log(event);
+  };
   return (
     <>
       <h1>List</h1>
@@ -8,7 +14,7 @@ function ListGroup() {
         {/* {items.length === 0 ? <p>No Item Found</p> : null} */}
         {items.length === 0 && <p> No item Found</p>}
         {items.map((item) => (
-          <li key={item} className="list-group-item">
+          <li key={item} className="list-group-item" onClick={handleClick}>
             {item}
           </li>
         ))}
