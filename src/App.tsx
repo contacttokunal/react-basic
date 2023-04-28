@@ -1,4 +1,5 @@
 import ListGroup from "./components/ListGroup";
+import "./App.css";
 
 const handleSelectItem = (item: string) => {
   console.log(item);
