@@ -1,5 +1,4 @@
-import ListGroup from "./components/ListGroup";
-import "./App.css";
+import { BsFillCalendarFill } from "react-icons/bs";
 
 const handleSelectItem = (item: string) => {
   console.log(item);
@@ -10,11 +9,7 @@ function App() {
 
   return (
     <div>
-      <ListGroup
-        items={items}
-        heading="colors"
-        onSelectItem={handleSelectItem}
-      />
+      <BsFillCalendarFill color="red" size="40" />
     </div>
   );
 }
