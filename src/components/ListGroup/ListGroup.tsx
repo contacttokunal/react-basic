@@ -1,19 +1,4 @@
 import { useState } from "react";
-import styled from "styled-components";
-
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
-
-interface ListITemProps {
-  active: boolean;
-}
-
-const ListItem = styled.li<ListITemProps>`
-  padding: 5px 0;
-  background: ${(props) => (props.active ? "blue" : "none")};
-`;
 
 interface Props {
   items: string[];
@@ -22,27 +7,31 @@ interface Props {
 }
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
       <h1>{heading}</h1>
-      <List>
+      <ul className="list-group" style={{ backgroundColor: "yellow" }}>
         {/* {items.length === 0 ? <p>No Item Found</p> : null} */}
         {items.length === 0 && <p> No item Found</p>}
         {items.map((item, index) => (
-          <ListItem
-            active={index === selectedIndex}
+          <li
             key={item}
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
             }}
           >
             {item}
-          </ListItem>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }
