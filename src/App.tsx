@@ -1,15 +1,13 @@
-import { BsFillCalendarFill } from "react-icons/bs";
+import Button from "./components/ListGroup/Button";
 
-const handleSelectItem = (item: string) => {
-  console.log(item);
-};
+const handleClick = () => console.log("Clicked");
 
 function App() {
-  const items = ["red", "green", "blue"];
-
   return (
     <div>
-      <BsFillCalendarFill color="red" size="40" />
+      <Button color="primary" onClick={handleClick}>
+        My Button
+      </Button>
     </div>
   );
 }
