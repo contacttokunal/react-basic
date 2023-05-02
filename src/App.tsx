@@ -1,11 +1,20 @@
-import Message from "./components/Message";
+import { useState } from "react";
 
 const App = () => {
+  const [drink, setDrink] = useState({
+    title: "Americano",
+    price: 5,
+  });
+
+  const handleClick = () => {
+    const newDrink = { ...drink, price: 6 };
+    setDrink(newDrink);
+  };
+
   return (
     <div>
-      <Message />
-      <Message />
-      <Message />
+      {drink.price}
+      <button onClick={handleClick}>Button</button>
     </div>
   );
 };
