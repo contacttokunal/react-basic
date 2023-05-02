@@ -1,19 +1,13 @@
-import { useState } from "react";
+import Message from "./components/Message";
 
-function App() {
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  //nest the above relted component in object but avoid nested object structure
-  const [person, setPerson] = useState({
-    firstName: "",
-    lastName: "",
-    contact: {
-      address: { street: "" },
-    },
-  });
-  const [isLoading, setIsLoading] = useState(false);
-
-  return <div></div>;
-}
+const App = () => {
+  return (
+    <div>
+      <Message />
+      <Message />
+      <Message />
+    </div>
+  );
+};
 
 export default App;
