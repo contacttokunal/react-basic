@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { CanceledError } from "./services/api-client";
 import UserService, { User } from "./services/user-service";
-import userService from "./services/user-service";
 import useUsers from "./hooks/useUsers";
 
 function App() {
@@ -22,8 +19,7 @@ function App() {
     const newUser = { id: 0, name: "Mosh" };
     setUsers([newUser, ...users]);
 
-    userService
-      .create(newUser)
+    UserService.create(newUser)
       .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
       .catch((err) => {
         setError(err.message);
@@ -36,7 +32,7 @@ function App() {
     const updatedUser = { ...user, name: user.name + "!" };
     setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
 
-    userService.updateUser(updatedUser).catch((err) => {
+    UserService.updateUser(updatedUser).catch((err) => {
       setError(err.message);
       setUsers(originalUser);
     });
